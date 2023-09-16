@@ -71,3 +71,36 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  gap: 8px;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
