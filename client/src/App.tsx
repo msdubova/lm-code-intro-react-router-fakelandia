@@ -35,11 +35,11 @@ import { Router } from "./router/routes";
 // }
 function App() {
   return (
-    <>
+    <div className="app">
       <BrowserRouter>
         <Router />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 export default App;
