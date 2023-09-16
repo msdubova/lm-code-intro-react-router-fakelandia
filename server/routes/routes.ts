@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { Express } from 'express';
 import {
-	getMisdemeanours,
+	getMisdemeanourss,
 	handleConfession,
 	weaklyValidateConfession,
 } from '../services/midemeanours_service';
@@ -45,9 +45,9 @@ function addAPIRoutes(app: Express) {
 		next();
 	});
 
-	// this route allows clients to GET misdemeanours
-	console.log('📨  Adding GET misdemeanour route...');
-	apiRouter.get('/misdemeanours/:amount', async (req, res) => {
+	// this route allows clients to GET Misdemeanourss
+	console.log('📨  Adding GET Misdemeanours route...');
+	apiRouter.get('/Misdemeanourss/:amount', async (req, res) => {
 		const amount = req.params.amount;
 
 		const requestedAmount = Number.parseInt(amount);
@@ -58,7 +58,7 @@ function addAPIRoutes(app: Express) {
 		}
 
 		const result = JSON.stringify({
-			misdemeanours: await getMisdemeanours(requestedAmount),
+			Misdemeanourss: await getMisdemeanourss(requestedAmount),
 		});
 		res.status(200).send(result);
 	});
