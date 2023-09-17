@@ -3,13 +3,15 @@ import { useState } from "react";
 import Input from "./Input";
 import Select from "./Select";
 import Button from "./Button";
+import Textarea from "./Textarea";
 
 import validateInput from "./validateInput";
 import validateSelect from "./validateSelect";
+import validateTextarea from "./validateTextarea";
 
 const Form: React.FC = () => {
   const [inputSubject, setInputSubject] = useState("");
-
+  const [confessMessage, setConfessMessage] = useState("");
   const reasons = [
     "Manchester United fan",
     "Talk too much in lift",
@@ -35,6 +37,11 @@ const Form: React.FC = () => {
         validate={validateInput}
       />
       <Select options={reasons} validate={validateSelect} />
+      <Textarea
+        state={confessMessage}
+        setState={setConfessMessage}
+        validate={validateTextarea}
+      />
       <Button />
     </form>
   );
