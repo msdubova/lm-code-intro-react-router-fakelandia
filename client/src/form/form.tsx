@@ -1,8 +1,22 @@
-import Input from "./input";
-import Select from "./select";
-import Button from "./button";
+import { useState } from "react";
+
+import Input from "./Input";
+import Select from "./Select";
+import Button from "./Button";
+
+import validateInput from "./validateInput";
+import validateSelect from "./validateSelect";
 
 const Form: React.FC = () => {
+  const [inputSubject, setInputSubject] = useState("");
+
+  const reasons = [
+    "Manchester United fan",
+    "Talk too much in lift",
+    "Very rude",
+    "I just want to talk",
+  ];
+
   return (
     <form>
       <legend>
@@ -15,8 +29,12 @@ const Form: React.FC = () => {
           you're welcome to contact us here too. It's up to you!
         </p>
       </legend>
-      <Input />
-      <Select />
+      <Input
+        state={inputSubject}
+        setState={setInputSubject}
+        validate={validateInput}
+      />
+      <Select options={reasons} validate={validateSelect} />
       <Button />
     </form>
   );
