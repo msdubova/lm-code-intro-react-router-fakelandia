@@ -16,7 +16,6 @@ const Misdemeanours: React.FC = () => {
   }, []);
   return (
     <>
-      <h1>Misdomeanours</h1>
       <p>{cases === undefined && "Loading..."}</p>
       {cases && (
         <table>
