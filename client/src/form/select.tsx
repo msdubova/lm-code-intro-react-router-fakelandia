@@ -2,26 +2,34 @@ import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 
 interface selectProps {
+  state: string;
+  setState: (value: string) => void;
   options: string[];
   validate: (value: string) => void;
 }
 
-const Select: React.FC<selectProps> = ({ options, validate }) => {
+const Select: React.FC<selectProps> = ({
+  state,
+  setState,
+  options,
+  validate,
+}) => {
   const [selectedValue, setSelectedValue] = useState("");
   const errorMessage = validate(selectedValue);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedValue(event.target.value);
+    const newValue = event.target.value;
+    setSelectedValue(newValue);
+    setState(newValue);
   };
   return (
     <>
-      {" "}
       <p>
-        <label htmlFor="SelectReasonForContact">ReasonForContact</label>
+        <label htmlFor="SelectReasonForContact">Reason For Contact</label>
         <select
           id="SelectReasonForContact"
           name="reasonForContact"
-          value={selectedValue}
+          value={state}
           onChange={handleSelectChange}
         >
           <option value="" disabled>

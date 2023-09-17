@@ -19,7 +19,12 @@ const Input: React.FC<templateInput> = (props) => {
     <>
       <p>
         <label htmlFor="inputSubject">Subject</label>
-        <input id="inputSubject" type="text" onChange={handleInputChange} />
+        <input
+          id="inputSubject"
+          type="text"
+          value={state}
+          onChange={handleInputChange}
+        />
       </p>
 
       {errorMessage !== undefined && <ErrorMessage message={errorMessage} />}
