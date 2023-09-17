@@ -34,8 +34,40 @@ const Form: React.FC = () => {
     );
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const formData = {
+      subject: inputSubject,
+      reason: reasonSelect,
+      details: confessMessage,
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/api/confess", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && reasonSelect !== "I just want to talk") {
+          console.log(data);
+        }
+      } else {
+        const errorData = await response.json();
+        console.log(errorData.message);
+      }
+    } catch (error) {
+      console.log("Error while sending request", error);
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <legend>
         <p>
           It's very difficult to catch people committing misdemeanors, so we
@@ -63,7 +95,7 @@ const Form: React.FC = () => {
         validate={validateTextarea}
       />
 
-      <Button isValid={isFormValid()} />
+      <Button isValid={isFormValid()} onSubmit={handleSubmit} />
     </form>
   );
 };
