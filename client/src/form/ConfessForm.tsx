@@ -8,19 +8,13 @@ import Textarea from "./Textarea";
 import validateInput from "./validateInput";
 import validateSelect from "./validateSelect";
 import validateTextarea from "./validateTextarea";
-
-const Form: React.FC = () => {
+import { MISDEMEANOURS, JUST_TALK } from "../../types/misdemeanours.types";
+const ConfessForm: React.FC = () => {
   const [inputSubject, setInputSubject] = useState("Confession");
   const [confessMessage, setConfessMessage] = useState(
     "Please write your message here"
   );
   const [reasonSelect, setReasonSelect] = useState("");
-  const reasons = [
-    "Manchester United fan",
-    "Talk too much in lift",
-    "Very rude",
-    "I just want to talk",
-  ];
 
   const isFormValid = (): boolean => {
     const subjectValidation = validateInput(inputSubject);
@@ -54,7 +48,7 @@ const Form: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        if (data.success && reasonSelect !== "I just want to talk") {
+        if (data.success && reasonSelect !== "just-talk") {
           console.log(data);
         }
       } else {
@@ -86,7 +80,7 @@ const Form: React.FC = () => {
       <Select
         state={reasonSelect}
         setState={setReasonSelect}
-        options={reasons}
+        options={[...MISDEMEANOURS, JUST_TALK]}
         validate={validateSelect}
       />
       <Textarea
@@ -100,4 +94,4 @@ const Form: React.FC = () => {
   );
 };
 
-export default Form;
+export default ConfessForm;

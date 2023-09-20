@@ -1,7 +1,8 @@
-import Form from "../form/Form";
+import ConfessForm from "../form/ConfessForm";
+
 const Confession: React.FC = () => (
   <>
-    <Form />
+    <ConfessForm />
   </>
 );
 export default Confession;
