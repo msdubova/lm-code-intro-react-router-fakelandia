@@ -1,10 +1,15 @@
 #root {
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif
 }
 
 body {
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-weight: bold;
 }
 
 .app {
@@ -13,13 +18,29 @@ body {
   height: 100vh;
 }
 
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo {
-  height: 6em;
-  padding: 1.5em;
+ width: 300px;
+ padding-left: 40px;
+ padding-right: 40px;
+
+display: grid;
+grid-template-columns: 30% 1fr;
+align-items: center;
   will-change: filter;
   transition: filter 300ms;
 }
-
+.logo svg {
+width: 50px;
+height: auto;
+}
 .logo:hover {
   filter: drop-shadow(0 0 2em #00a859aa);
 }
@@ -29,9 +50,10 @@ body {
 }
 
 .header {
-  padding: 20px;
+
   background-color: #009966;
   border-radius: 5px;
+  display: flex;
 }
 
 .nav {
@@ -39,6 +61,19 @@ body {
   display: grid;
   grid-gap: 30px;
   grid-template-columns: auto auto auto;
+}
+
+.navLink {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  cursor:pointer;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.navLink:hover {opacity: 0.4;
 }
 
 @keyframes logo-spin {
@@ -169,3 +204,4 @@ button:disabled {
   margin-top: 5px;
 
 }
+

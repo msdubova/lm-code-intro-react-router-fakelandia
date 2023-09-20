@@ -15,7 +15,8 @@ const ConfessForm: React.FC = () => {
     "Please write your message here"
   );
   const [reasonSelect, setReasonSelect] = useState("");
-
+  const [error, setError] = useState("");
+  const [confessions, setConfessions] = useState([...MISDEMEANOURS, JUST_TALK]); // Состояние для хранения признаний
   const isFormValid = (): boolean => {
     const subjectValidation = validateInput(inputSubject);
     const reasonValidation = validateSelect(reasonSelect);
@@ -49,10 +50,15 @@ const ConfessForm: React.FC = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.success && reasonSelect !== "just-talk") {
-          console.log(data);
+          const newConfessions = [...confessions, data.confession]; 
+
+          setConfessions(newConfessions);
+      
+          alert(JSON.stringify(newConfessions));
         }
       } else {
         const errorData = await response.json();
+        setError(errorData.message);
         console.log(errorData.message);
       }
     } catch (error) {
@@ -61,36 +67,40 @@ const ConfessForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <legend>
-        <p>
-          It's very difficult to catch people committing misdemeanors, so we
-          appreciate it when citizens confess to us directly.
-        </p>
-        <p>
-          However, if you're just having a hard day and ready to vent, then
-          you're welcome to contact us here too. It's up to you!
-        </p>
-      </legend>
-      <Input
-        state={inputSubject}
-        setState={setInputSubject}
-        validate={validateInput}
-      />
-      <Select
-        state={reasonSelect}
-        setState={setReasonSelect}
-        options={[...MISDEMEANOURS, JUST_TALK]}
-        validate={validateSelect}
-      />
-      <Textarea
-        state={confessMessage}
-        setState={setConfessMessage}
-        validate={validateTextarea}
-      />
+    <>
+      {" "}
+      <form onSubmit={handleSubmit}>
+        <legend>
+          <p>
+            It's very difficult to catch people committing misdemeanors, so we
+            appreciate it when citizens confess to us directly.
+          </p>
+          <p>
+            However, if you're just having a hard day and ready to vent, then
+            you're welcome to contact us here too. It's up to you!
+          </p>
+        </legend>
+        <Input
+          state={inputSubject}
+          setState={setInputSubject}
+          validate={validateInput}
+        />
+        <Select
+          state={reasonSelect}
+          setState={setReasonSelect}
+          options={[...MISDEMEANOURS, JUST_TALK]}
+          validate={validateSelect}
+        />
+        <Textarea
+          state={confessMessage}
+          setState={setConfessMessage}
+          validate={validateTextarea}
+        />
 
-      <Button isValid={isFormValid()} onSubmit={handleSubmit} />
-    </form>
+        <Button isValid={isFormValid()} onSubmit={handleSubmit} />
+      </form>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </>
   );
 };
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Misdemeanour } from "../../types/misdemeanours.types";
 import { emojies } from "../../types/misdemeanours.types";
-
+// import { MISDEMEANOURS } from "../../types/misdemeanours.types";
 const Misdemeanours: React.FC = () => {
   const [cases, setCases] = useState<Array<Misdemeanour>>();
   const [selectedMisdemeanour, setSelectedMisdemeanour] = useState("");
+  // let extandableCases = [...MISDEMEANOURS];
 
   const AMOUNT = 5;
 
@@ -21,7 +22,7 @@ const Misdemeanours: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div>
         <label>Filter by Misdemeanour:</label>
         <select
@@ -70,7 +71,7 @@ const Misdemeanours: React.FC = () => {
           </tbody>
         </table>
       )}
-    </>
+    </div>
   );
 };
 
