@@ -8,7 +8,7 @@ const Misdemeanours: React.FC = () => {
   const [selectedMisdemeanour, setSelectedMisdemeanour] = useState("");
   // let extandableCases = [...MISDEMEANOURS];
 
-  const AMOUNT = 5;
+  const AMOUNT = 3;
 
   useEffect(() => {
     const getCases = async () => {

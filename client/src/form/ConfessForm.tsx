@@ -8,6 +8,7 @@ import Textarea from "./Textarea";
 import validateInput from "./validateInput";
 import validateSelect from "./validateSelect";
 import validateTextarea from "./validateTextarea";
+let count: number = 0;
 import { MISDEMEANOURS, JUST_TALK } from "../../types/misdemeanours.types";
 const ConfessForm: React.FC = () => {
   const [inputSubject, setInputSubject] = useState("Confession");
@@ -16,7 +17,9 @@ const ConfessForm: React.FC = () => {
   );
   const [reasonSelect, setReasonSelect] = useState("");
   const [error, setError] = useState("");
-  const [confessions, setConfessions] = useState([...MISDEMEANOURS, JUST_TALK]);
+  // const [confessions, setConfessions] = useState([...MISDEMEANOURS, JUST_TALK]);
+  // const [totalConfessions, setTotalConfessions] = useState(1);
+
   const isFormValid = (): boolean => {
     const subjectValidation = validateInput(inputSubject);
     const reasonValidation = validateSelect(reasonSelect);
@@ -50,11 +53,13 @@ const ConfessForm: React.FC = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.success && reasonSelect !== "just-talk") {
-          const newConfessions = [...confessions, data.confession]; 
+          // const newConfessions = [...confessions, data.confession];
 
-          setConfessions(newConfessions);
-      
-          alert(JSON.stringify(newConfessions));
+          // setConfessions(newConfessions);
+          // setTotalConfessions((prevCount) => prevCount + 1);
+          count = count + 1;
+
+          alert(count);
         }
       } else {
         const errorData = await response.json();
@@ -105,3 +110,4 @@ const ConfessForm: React.FC = () => {
 };
 
 export default ConfessForm;
+export { count };

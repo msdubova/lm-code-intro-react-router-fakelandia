@@ -2,7 +2,7 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Router } from "./router/routes";
 
 // function App() {
@@ -36,9 +36,9 @@ import { Router } from "./router/routes";
 function App() {
   return (
     <div className="app">
-      <BrowserRouter>
+      <HashRouter>
         <Router />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
