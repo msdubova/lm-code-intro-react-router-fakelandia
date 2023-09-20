@@ -16,7 +16,7 @@ const ConfessForm: React.FC = () => {
   );
   const [reasonSelect, setReasonSelect] = useState("");
   const [error, setError] = useState("");
-  const [confessions, setConfessions] = useState([...MISDEMEANOURS, JUST_TALK]); // Состояние для хранения признаний
+  const [confessions, setConfessions] = useState([...MISDEMEANOURS, JUST_TALK]);
   const isFormValid = (): boolean => {
     const subjectValidation = validateInput(inputSubject);
     const reasonValidation = validateSelect(reasonSelect);
