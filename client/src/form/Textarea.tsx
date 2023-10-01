@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "./error_message";
 
 interface TemplateTextareaProps {
   state: string;

@@ -1,5 +1,5 @@
-import Nav from "../Nav/Nav";
-import Logo from "../Logo/Logo";
+import Nav from "../nav/nav";
+import Logo from "../logo/logo";
 const Header: React.FC = () => (
   <header className="header">
     <Logo />

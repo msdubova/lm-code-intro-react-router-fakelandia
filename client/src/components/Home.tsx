@@ -1,4 +1,4 @@
-import Counter from "./Counter/Counter";
+import Counter from "./counter/counter";
 const Home: React.FC = () => {
   return (
     <div className="container">

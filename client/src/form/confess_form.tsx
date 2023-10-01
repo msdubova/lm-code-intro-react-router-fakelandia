@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import Input from "./Input";
-import Select from "./Select";
-import Button from "./Button";
-import Textarea from "./Textarea";
+import Input from "./input";
+import Select from "./select";
+import Button from "./button";
+import Textarea from "./textarea";
 
-import validateInput from "./validateInput";
-import validateSelect from "./validateSelect";
-import validateTextarea from "./validateTextarea";
+import validateInput from "./validate_input";
+import validateSelect from "./validate_select";
+import validateTextarea from "./validate_textarea";
 let count: number = 0;
 import { MISDEMEANOURS, JUST_TALK } from "../../types/misdemeanours.types";
 const ConfessForm: React.FC = () => {

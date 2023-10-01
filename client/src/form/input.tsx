@@ -1,12 +1,13 @@
 import { useState } from "react";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "./error_message";
 
-interface templateInput {
+interface TemplateInput {
   state: string;
   setState: (value: string) => void;
   validate: (value: string) => void;
 }
-const Input: React.FC<templateInput> = (props) => {
+
+const Input: React.FC<TemplateInput> = (props) => {
   const [state, setState] = useState(props.state);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

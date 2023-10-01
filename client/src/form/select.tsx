@@ -1,14 +1,14 @@
 import { useState } from "react";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "./error_message";
 
-interface selectProps {
+interface SelectProps {
   state: string;
   setState: (value: string) => void;
   options: string[];
   validate: (value: string) => void;
 }
 
-const Select: React.FC<selectProps> = ({
+const Select: React.FC<SelectProps> = ({
   state,
   setState,
   options,

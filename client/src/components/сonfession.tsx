@@ -1,4 +1,4 @@
-import ConfessForm from "../form/ConfessForm";
+import ConfessForm from "../form/confess_form";
 
 const Confession: React.FC = () => (
   <div className="container">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Misdemeanour } from "../../types/misdemeanours.types";
 import { emojies } from "../../types/misdemeanours.types";
-import Loader from "./Helpers/Loader";
+import Loader from "./helpers/loader";
 // import { MISDEMEANOURS } from "../../types/misdemeanours.types";
 const Misdemeanours: React.FC = () => {
   const [cases, setCases] = useState<Array<Misdemeanour>>();

@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import MainLayout from "../components/MainLayout";
-import Home from "../components/Home";
-import Confession from "../components/Confession";
-import Misdemeanours from "../components/Misdemeanours";
-import NotFound from "../components/NotFound";
-import Misdemeanour from "../components/Misdemeanours";
+import MainLayout from "../components/main_layout";
+import Home from "../components/home";
+import Confession from "../components/сonfession";
+import Misdemeanours from "../components/misdemeanours";
+import NotFound from "../components/not_found";
+import Misdemeanour from "../components/misdemeanours";
 export const Router = () => {
   return (
     <Routes>
